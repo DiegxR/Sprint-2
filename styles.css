@@ -223,8 +223,9 @@ table th, td{
 }
 
 @media (max-width: 550px){
+   
     body{
-        min-width: 100%;
+        min-width: 100vh;
         overflow-x: hidden;
     }
     #background{
@@ -246,8 +247,10 @@ table th, td{
         z-index: 1;
         margin-top: 260px;
         margin-left: 50px;
-        font-size: 22px;
         width: 300px;
+    }
+    #card-number{
+        font-size: 20px;
     }
     
     #card-cvc{
