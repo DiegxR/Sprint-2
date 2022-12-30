@@ -165,7 +165,7 @@ form button{
     margin-bottom: 40px;
 }
 #menu{
-    width: 100%;
+    width: 350px;
     margin-left: 10%;
 }
 
@@ -232,7 +232,7 @@ table th, td{
     width: 370px;
     margin-top: 50px;
 }
-@media (min-width: 550px) {
+@media (min-width: 800px) {
     body{
         width: 100%;
     }
