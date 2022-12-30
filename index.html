@@ -4,80 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <div id="bg-card">
-        <img src="./images/bg-card-front.png"  id="card-front">
-        <img src="./images/card-logo.svg" id="card-logo">
-        <div id="card-info">
-            <p id="card-number">0000 0000 0000 0000</p>
-            <div>
-                <p id="card-name">JANE APPLESEED</p>
-                <P id="card-date">00/00</P>
-            </div>
-        </div>
-        <p id="card-cvc">000</p>
-        <img src="./images/bg-card-back.png" id="card-back">
-    </div>
-    <img src="./images/bg-main-desktop.png" alt="background" id="background">
-    
-    
-        <form id="form">
-            <div class="name">
-                <label for="name">CARDHOLDER NAME</label>
-                <input type="text" id="name" placeholder="e.g. Jane Applaseed">
-                <p></p>
-            </div>
-            <div id="numberContainer">
-                <label for="text">CARD NUMBER</label>
-                <input type="text" id="number" class="number" placeholder="e.g. 1234 5678 9123 0000">
-                <p></p>
+    <section class="container">
+        <section class="cards">
+           
+            <div id="bg-card">
+                    <div id="card1" class="radius">
+                      <img src="./images/card-logo.svg" alt="">
+                        <p id="card-number">0000 0000 0000 0000</p>
+                        <div>
+                            <p id="card-name">JANE APPLESEED</p>
+                            <P id="card-date">00/00</P>
+                        </div>
+                    </div>
+                <div id="card2" class="radius">
+                    
+                    <p id="card-cvc">000</p>
+                </div>
             </div>
             
-            <div class="inputs">
-                <div> 
-                    <label for="">EXP. DATE (MM/YY)</label>
-                    <input type="text" id="month" class="number" placeholder="MM">
-                    <input type="text" id="year" class="number" placeholder="YY">
-                    <p></p>
-                </div>
-               <div>
-                    <label for="">CVC</label>
-                   <input type="text" id="cvc" class="number" placeholder="e.g. 123">
-                   <p></p>
-               </div>
-            </div>
-           
-            <button>Confirm</button>
-        </form>
-    
-        <section id="complete" class="hidden">
-            <img src="./images/icon-complete.svg" alt="">
-            <h1>THANK YOU!</h1>
-            <P>We've added your card details</P>
-            <button id="continue">Continue</button>
         </section>
-        <section id="menu" class="hidden">
-            <button id="addNew">Add new card</button>
-            <button id="seeList">See list cards</button>
+        <section class="main">
+            <section class="formulario">
+                <form id="form">
+                    <div class="name">
+                        <label for="name">CARDHOLDER NAME</label>
+                        <input type="text" id="name" placeholder="e.g. Jane Applaseed">
+                        <p></p>
+                    </div>
+                    <div id="numberContainer">
+                        <label for="text">CARD NUMBER</label>
+                        <input type="text" id="number" class="number" placeholder="e.g. 1234 5678 9123 0000">
+                        <p></p>
+                    </div>
+                    
+                    <div class="inputs">
+                        <div> 
+                            <label for="">EXP. DATE (MM/YY)</label>
+                            <input type="text" id="month" class="number" placeholder="MM">
+                            <input type="text" id="year" class="number" placeholder="YY">
+                            <p></p>
+                        </div>
+                       <div>
+                            <label for="">CVC</label>
+                           <input type="text" id="cvc" class="number" placeholder="e.g. 123">
+                           <p></p>
+                       </div>
+                    </div>
+                   
+                    <button>Confirm</button>
+                </form>
+            </section>
+            
+                <section id="complete" class="hidden">
+                    <img src="./images/icon-complete.svg" alt="">
+                    <h1>THANK YOU!</h1>
+                    <P>We've added your card details</P>
+                    <button id="continue">Continue</button>
+                </section>
+                <section id="menu" class="hidden">
+                    <button id="addNew">Add new card</button>
+                    <button id="seeList">See list cards</button>
+                </section>
+                <section id="listTable" class="hidden">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Cvc</th>
+                                <th><button id="btnAdd">🆕</button></th>
+                            </tr>
+                        </thead>
+                        <tbody id="list"></tbody>
+                    </table>
+                </section>
+                <script src="./main.js"></script>
         </section>
-        <section id="listTable" class="hidden">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Number</th>
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th>Cvc</th>
-                        <th><button id="btnAdd">🆕</button></th>
-                    </tr>
-                </thead>
-                <tbody id="list"></tbody>
-            </table>
         </section>
-        <script src="./main.js"></script>
 </body>
 </html>

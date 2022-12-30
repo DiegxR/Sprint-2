@@ -1,83 +1,92 @@
-*{
+/* /* *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Space Grotesk', sans-serif;
 }
 body{
-    width: 100vh;
+    width: 100%;
     height: 100vh;
+}
+.container{
     display: flex;
+    width: inherit;
+    height: inherit;
 }
-#background{
-    height: 100%;
-    width: 400px;
-    position: absolute;
+.cards{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 100vh;
+    background-image: url(./images/bg-main-desktop.png);
+    background-repeat: no-repeat;
 }
+
 #bg-card{
     min-width: 100px;
-    position: absolute;
-    margin: 8% auto auto 150px;
+    transform: translateX(200px);
     z-index: 1;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 40px;
-    justify-content: flex-start;
 }
-#card-back{
-    position: absolute;
-    margin-top: 260px;
-    margin-left: 100px;
-    width: 400px;
-    -webkit-box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
-    -moz-box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
-    box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
-    border-radius: 8px;
-}
-#card-front{
-    width: 400px;
+#card1{
+    background-image: url(./images/bg-card-front.png);
     -webkit-box-shadow: 15px 40px 62px 0px rgba(0,0,0,0.42);
     -moz-box-shadow: 15px 40px 62px 0px rgba(0,0,0,0.42);
     box-shadow: 15px 40px 62px 0px rgba(0,0,0,0.42);
     border-radius: 8px;
-}
-#card-logo{
-    position: absolute;
-    margin-top: 30px;
-    margin-left: 30px;
-}
-#card-info{
-    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 330px;
+    height: 180px;
     color: white;
-    margin-top: 130px;
-    margin-left: 30px;
-    letter-spacing: 3px;
-    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
-#card-info div{
+#card1 img{
+    width: 60px;
+    margin-bottom: 40px;
+}
+#card1 div{
+    font-size: 12px;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
 }
-#card-cvc{
-    color: white;
-    position: absolute;
-    margin-top: 358px;
-    margin-left: 412px;
-    font-size: 15px;
-    z-index: 1;
-    letter-spacing: 2px;
-}
-
-form{
-    margin-left: 800px;
-    align-self: center;
+#card2{
+    background-image: url(./images/bg-card-back.png);
+    -webkit-box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
+    -moz-box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
+    box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 330px;
+    height: 180px;
+    transform: translateX(80px);
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+    justify-content: end;
+    align-items: center;
 
+}
+#card2 p{
+    margin-right: 40px;
+    color: white;
+}
+.formulario{
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    width: 350px;
+}
 form input{
     width: 350px;
     height: 40px;
@@ -86,7 +95,6 @@ form input{
     border-radius: 8px;
     border-color: hsla(278, 93%, 30%, 0.137);
     padding: 15px;
-    margin-top: 6px;
 }
 form input::placeholder{
     color: rgba(128, 128, 128, 0.493);
@@ -128,10 +136,10 @@ form button{
     border-radius: 8px;
     font-size: 16px;
     margin-top: 30px;
+    border: none;
+    width: 350px;
 }
 #complete{
-    margin-left: 850px;
-    margin-top: 200px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -169,7 +177,6 @@ form button{
 }
 #menu{
     align-self: center;
-    margin-left: 800px;
 }
 #addNew{
     background-color: hsl(278, 68%, 11%);
@@ -191,7 +198,6 @@ form button{
 #listTable{
     align-self: center;
     justify-self: flex-end;
-    margin-left: 750px;
     
 }
 #listTable table{
@@ -222,91 +228,311 @@ table th, td{
     border: 1px solid;
 }
 
-@media (max-width: 550px){
-   
+@media (max-width: 600px){
     body{
-        min-width: 100vh;
-        overflow-x: hidden;
+        width: 100%;
     }
-    #background{
-        position: relative;
-        background: url(./images/bg-main-mobile.png);   
-        min-width: 100%;
-        overflow-x: hidden;
-        height:250px;       /*Ancho de la imagen nueva, aunque en este caso son iguales.*/
+    .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .cards{
+        background-image: url(./images/bg-main-mobile.png);
+        background-repeat: no-repeat;
+        width: 100%;
     }
     #bg-card{
-        margin: 0px;
+        transform: translateX(0);
+        flex-direction: column-reverse;
     }
-    #card-logo{
-        margin-top: 180px;
-        margin-left: 55px;
-        z-index: 1;
-    }
-    #card-info{
-        z-index: 1;
-        margin-top: 260px;
-        margin-left: 50px;
-        width: 300px;
-    }
-    #card-number{
-        font-size: 20px;
-    }
+   #card2{
+    transform: translateX(0);
+   /* }
+  
+} */
+/* New code  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
     
-    #card-cvc{
-        margin-top: 114px;
-        margin-left: 385px;
-    }
-    #card-front{
-        margin-top: 140px;
-        margin-left: 30px;
-        width: 350px;
-        height: 200px;
-        z-index: 1;
-    }
-    #card-back{
-        margin-top: 25px;
-        width: 350px;
-        height: 200px;
-        margin-left: 30%;
-    }
-    #form{
-        position: absolute;
-        margin-top: 600px;
-        margin-left: 30px;
-        width: 400px;
-        height: 450px;
-    }
-    #form label{
-        font-size: 15px;
-    }
-    #form input{
-        width: 400px;
-        height: 55px;
-    }
-    .inputs div:nth-child(1) input{
-        width: 100px !important;
-    }
-   
-    .inputs div:nth-child(2) input{
-       width: 180px !important;
-      
-    }
-    #complete{
-        position: absolute;
-        margin-left: 50px;
-        margin-top: 370px;
-    }
-    #menu{
-        position: absolute;
-        margin-left: 50px;
-        margin-top: 370px;
-    }
-    #listTable{
-        position: absolute;
-        margin-left: 15px;
-        margin-top: 360px;
-        width: 300px;
-    }
+}
+.cards{
+    background: url(./images/bg-main-mobile.png);
+    background-size: cover;
+    width: 100%;
+    height: 225px;
+    
+}
+#bg-card{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.radius{
+    border-radius: 6px;
 }
 
+/* card front */
+#card1{
+    background: url(./images/bg-card-front.png);
+    background-size: cover;
+    -webkit-box-shadow: 15px 40px 62px 0px rgba(0,0,0,0.42);
+    -moz-box-shadow: 15px 40px 62px 0px rgba(0,0,0,0.42);
+    box-shadow: 15px 40px 62px 0px rgba(0,0,0,0.42);
+    transform: translateY(-37px);
+    width: 290px;
+    height: 160px;
+    z-index: 1;
+    margin-left: 10%;
+    padding: 17px;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+#card1 img{
+    width: 60px;
+    margin-bottom: 35px;
+}
+#card1 div{
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 10px;
+    
+}
+/* card back */
+#card2{
+    background: url(./images/bg-card-back.png);
+    background-size: cover;
+    -webkit-box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
+    -moz-box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
+    box-shadow: 15px 40px 62px -17px rgba(0,0,0,0.33);
+    width: 290px;
+    height: 160px;
+    transform: translateY(28px);
+    margin-left: 18%;
+    color: white;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 30px;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    width: 350px;
+    font-size: 15px;
+}
+.formulario input{
+    width: 350px;
+    height: 40px;
+    border-style: none;
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: hsla(278, 93%, 30%, 0.137);
+    padding: 13px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.formulario label{
+    font-size: 15px;
+}
+form div{
+    margin-bottom: 15px;
+}
+form input::placeholder{
+    color: rgba(128, 128, 128, 0.493);
+}
+form input:focus{
+    outline-style: solid;
+    outline-color: hsl(278, 94%, 30%);
+}
+.inputError{
+    outline-style: solid !important;
+    outline-color: hsl(0, 100%, 66%) !important;
+    outline-width: 0.5px;
+}
+#form p{
+    color:hsl(0, 100%, 66%);
+    font-size: 12px;
+    margin-top: 5px;
+}
+form div label{
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+#month, #year{
+    width: 70px;
+}
+
+#cvc{
+   width: 180px; 
+   margin-left: -15px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+}
+#year{
+    margin-right: 30px;
+}
+form button{
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 30px;
+    border: none;
+    width: 350px;
+}
+.hidden{
+    display: none !important;
+}
+#menu button{
+    background-color: hsl(278, 68%, 11%);
+    border: none;
+    color: white;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 370px;
+    margin-bottom: 40px;
+}
+#menu{
+    margin-left: 10%;
+}
+
+#listTable{
+    align-self: center;
+    justify-self: flex-end;
+    
+}
+#listTable table{
+    width: 400px;
+    text-align: left;
+    border-collapse: collapse;
+}
+table thead{
+    height: 30px;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+}
+table th, td{
+    padding: 10px;
+    border: solid 1px;
+}
+#btnAdd{
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    background-color: transparent;
+    border-style: none;
+}
+.delete{
+    background-color: hsl(0, 100%, 66%);
+    width: 22px;
+    height: 22px;
+    border: 1px solid; 
+    padding-bottom: 2px;
+}
+#complete{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#complete h1{
+    margin-top: 38px;
+    width: 300px;
+    font-size: 33px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+#complete p{
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.548);
+    margin-top: 20px;
+}
+#complete button{
+    background-color: hsl(278, 68%, 11%);
+    border: none;
+    color: white;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 370px;
+    margin-top: 50px;
+}
+@media (min-width: 550px) {
+    .container{
+        display: flex;
+        flex-direction: row;
+    }
+    .cards{
+        background: url(./images/bg-main-desktop.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 40%;
+    }
+    #bg-card{
+        flex-direction: column;
+        transform: translateX(150px);
+        margin-top: 200px;
+    }
+    #card1{
+        width: 320px;
+        height: 175px;
+        font-size: 20px;
+        padding: 25px;
+    }
+    #card-number{
+        letter-spacing: 3px;
+    }
+    #card1 div{
+        margin-top: 20px;
+        font-size: 11px;
+        font-weight: lighter;
+    }
+    #card2{
+        transform: translateX(30px);
+        font-size: 12px;
+        width: 320px;
+        height: 175px;
+        padding-right: 40px;
+    }
+    .formulario{
+       transform: translateY(30px);
+    }
+    .formulario form label{
+        font-size: 10px;
+    }
+    .formulario button{
+        margin-top: -10px;
+    }
+    #menu{
+        display: flex;
+        flex-direction: column;
+    }
+   
+}
