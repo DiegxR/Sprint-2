@@ -16,36 +16,47 @@ let errorInput = false;
 const cards = JSON.parse(localStorage.getItem('cards')) || [];
 
 const handleError= (e) =>{
-    let i = 2;
-    let dismin = false
-    if (e.path[0].id == "year" || e.path[0].id == "month"){
-        i += 1
-        dismin = true;
-    }
+   
+    
     if (isNaN(e.path[0].value) && e.path[0].className == "number" || e.path[0].value.includes("e") && e.path[0].className == "number"){
-            console.log(e.path[1].children[i])
-            e.path[1].children[i].innerText = "Wrong format, numbers only"
+            e.path[1].lastChild.previousSibling.innerText = "Wrong format, numbers only"
             e.path[0].classList.add('inputError')
             errorInput = true;
+            
         }else{
             if (e.path[0].value == ""){
-                e.path[1].children[i].innerText = "Can't be blank"
+                console.log(e.path[1].lastChild.previousSibling)
+                e.path[1].lastChild.previousSibling.innerText = "Can't be blank"
                 e.path[0].classList.add('inputError')
                 errorInput = true;
             }else{
-                    e.path[1].children[i].innerText = "";
+                    e.path[1].lastChild.previousSibling.innerText = "";
                     e.path[0].classList.remove('inputError')
                     errorInput = false;
             }
         }
-    dismin ? i-=1 : null;
+        if(e.path[0].id == "month"){
+            if(e.path[0].value > "12"){
+                e.path[1].lastChild.previousSibling.innerText = "It's not a Month";
+                e.path[0].classList.add('inputError')
+                console.log(e.path[0])
+                errorInput = true;
+            }
+        }    
 }
 
 form.addEventListener('focusout', e => {
     e.path[0].nodeName == 'BUTTON' ? null : handleError(e);
 })
-form.addEventListener('focusout',() =>{
-    cardNumber.innerText = number.value == "" ? "0000 0000 0000 0000" : number.value;
+form.addEventListener('input',(e) =>{
+    let numCero = "0000 0000 0000 0000" 
+    if(number.value == ""){
+        cardNumber.innerText = numCero;  
+    }else{
+        for (let i = 0; i < number.value.length; i++) {
+            i==0 ? cardNumber.innerText = `${number.value[i]}` :  ((i+1) % 4 == "0" ? cardNumber.innerText += `${number.value[i] + " " }` : cardNumber.innerText += `${number.value[i]}`);
+        }
+    }
     cardName.innerText = nam.value == "" ? "JANE APPLESEED" : nam.value;
     cardDate.innerText = month.value == "" && year.value == "" ? "00/00" : (month.value == "" ? `00/${year.value}` : (year.value == "" ? `${month.value}/00` : `${month.value}/${year.value}`))
     cardCvd.innerText = cvc.value == "" ? "000" : cvc.value;
@@ -55,16 +66,25 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     const data = [number, nam, year, month, cvc];
     data.forEach((dato)=> {
+        if(dato.id == "month"){
+            if(dato.value > "12"){
+                errorInput = true;
+                console.log(dato.parentNode.lastChild.previousSibling)
+                dato.parentNode.lastChild.previousSibling.innerText = "It's not a Month";
+                dato.classList.add('inputError')
+            }
+        }
         if(dato.value == "") {
             dato.classList.add('inputError');
             errorInput = true;
             dato.parentNode.lastChild.previousSibling.innerText = "Can't be blank";
         }
-        if(dato.className == "number" && isNaN(dato.value)) {
-            dato.classList.add('inputError');
+        if(dato.className == "number" && isNaN(dato.value) || dato.className == "number" && dato.value.includes("e")) {
             errorInput = true;
+            dato.classList.add('inputError');
             dato.parentNode.lastChild.previousSibling.innerText = "Wrong format, numbers only";
         }
+       
     })
     if(!errorInput){
         form.classList.add('hidden');
