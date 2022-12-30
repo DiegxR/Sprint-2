@@ -414,20 +414,22 @@ form button{
     height: 50px;
     border-radius: 8px;
     font-size: 16px;
-    width: 370px;
+    width: 85%;
     margin-bottom: 40px;
 }
 #menu{
+    width: 100%;
     margin-left: 10%;
 }
 
 #listTable{
+    width: 100%;
     align-self: center;
     justify-self: flex-end;
     
 }
 #listTable table{
-    width: 400px;
+    width: 85%;
     text-align: left;
     border-collapse: collapse;
 }
@@ -484,6 +486,9 @@ table th, td{
     margin-top: 50px;
 }
 @media (min-width: 550px) {
+    body{
+        width: 100%;
+    }
     .container{
         display: flex;
         flex-direction: row;
@@ -504,7 +509,7 @@ table th, td{
         width: 320px;
         height: 175px;
         font-size: 20px;
-        padding: 25px;
+        padding: 20px;
     }
     #card-number{
         letter-spacing: 3px;
@@ -534,5 +539,8 @@ table th, td{
         display: flex;
         flex-direction: column;
     }
-   
+   #listTable{
+    width: 500px;
+    transform: translatex(100px);
+   }
 }
