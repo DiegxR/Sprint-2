@@ -36,7 +36,7 @@ body{
     width: 290px;
     height: 160px;
     z-index: 1;
-    margin-left: 10%;
+    margin-left: 8%;
     padding: 17px;
     color: white;
     font-size: 18px;
@@ -66,7 +66,7 @@ body{
     width: 290px;
     height: 160px;
     transform: translateY(28px);
-    margin-left: 18%;
+    margin-left: 15%;
     color: white;
     font-size: 9px;
     letter-spacing: 1.5px;
