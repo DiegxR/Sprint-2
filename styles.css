@@ -83,11 +83,11 @@ body{
     justify-content: center;
 }
 form{
-    width: 350px;
+    width: 320px;
     font-size: 15px;
 }
 .formulario input{
-    width: 350px;
+    width: 320px;
     height: 40px;
     border-style: none;
     border: 1px solid;
@@ -170,7 +170,7 @@ form button{
 }
 
 #listTable{
-    width: 100%;
+    width: 90%;
     align-self: center;
     justify-self: flex-end;
     
@@ -275,6 +275,10 @@ table th, td{
     }
     .formulario{
        transform: translateY(30px);
+       width: 350px;
+    }
+    form input{
+        width: 350px;
     }
     .formulario form label{
         font-size: 10px;
