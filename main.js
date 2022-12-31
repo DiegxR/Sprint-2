@@ -40,7 +40,7 @@ const handleError= (e) =>{
                 errorInput = true;
             }
         } 
-        if(e.path[0].className !== "number" && !isNaN(e.path[0].value)){
+        if(e.path[0].id == "name" && !isNaN(e.path[0].value)){
             e.path[1].lastChild.previousSibling.innerText = "Wrong format, letters only"
             e.path[0].classList.add('inputError')
             errorInput = true;
@@ -86,7 +86,7 @@ form.addEventListener('submit', e => {
             dato.classList.add('inputError');
             dato.parentNode.lastChild.previousSibling.innerText = "Wrong format, numbers only";
         }
-       if(dato.className !== "number" && !isNaN(dato.value)){
+       if(dato.id == "name" && !isNaN(dato.value)){
             errorInput = true;
             dato.classList.add('inputError');
             dato.parentNode.lastChild.previousSibling.innerText = "Wrong format, letters only";
