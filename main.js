@@ -14,15 +14,12 @@ let cardCvd = document.getElementById('card-cvc');
 let errorInput = false;
 
 const cards = JSON.parse(localStorage.getItem('cards')) || [];
-
+//manejo de errores con focusout
 const handleError= (e) =>{
-   
-    
     if (isNaN(e.path[0].value) && e.path[0].className == "number" || e.path[0].value.includes("e") && e.path[0].className == "number"){
             e.path[1].lastChild.previousSibling.innerText = "Wrong format, numbers only"
             e.path[0].classList.add('inputError')
             errorInput = true;
-            
         }else{
             if (e.path[0].value == ""){
                 console.log(e.path[1].lastChild.previousSibling)
@@ -39,10 +36,15 @@ const handleError= (e) =>{
             if(e.path[0].value > "12"){
                 e.path[1].lastChild.previousSibling.innerText = "It's not a Month";
                 e.path[0].classList.add('inputError')
-                console.log(e.path[0])
+                
                 errorInput = true;
             }
-        }    
+        } 
+        if(e.path[0].className !== "number" && !isNaN(e.path[0].value)){
+            e.path[1].lastChild.previousSibling.innerText = "Wrong format, letters only"
+            e.path[0].classList.add('inputError')
+            errorInput = true;
+        }  
 }
 
 form.addEventListener('focusout', e => {
@@ -84,7 +86,11 @@ form.addEventListener('submit', e => {
             dato.classList.add('inputError');
             dato.parentNode.lastChild.previousSibling.innerText = "Wrong format, numbers only";
         }
-       
+       if(dato.className !== "number" && !isNaN(dato.value)){
+            errorInput = true;
+            dato.classList.add('inputError');
+            dato.parentNode.lastChild.previousSibling.innerText = "Wrong format, letters only";
+       }
     })
     if(!errorInput){
         form.classList.add('hidden');
