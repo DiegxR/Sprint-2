@@ -98,7 +98,7 @@ form{
     font-size: 16px;
 }
 form button{
-    width: 310px;
+    width: 310px !important;
 }
 .inputs div:nth-child(2) input{
     width: 150px !important;
@@ -136,7 +136,7 @@ form div label{
 }
 
 #cvc{
-   width: 180px; 
+   width: 150px !important; 
    margin-left: -15px;
 }
 
@@ -286,7 +286,7 @@ table th, td{
        margin-left: 100px;
     }
     form button{
-        width: 320px;
+        width: 320px !important;
     }
     .inputs div:nth-child(1) input{
         width: 70px !important;
